@@ -31,7 +31,12 @@ export_env_dir() {
 export_env_dir
 
 echo "-----> gem install bundler"
-gem install bundler --no-document
+
+# Commented out because Clarity, where this is used, already has a copy of
+# Bundler installed in the slug by the time this buildpack runs, and this
+# buildpack's copy of Bundler conflicts with that one.
+# gem install bundler --no-document
+
 echo "-----> yarn install & npm rebuild node-sass"
 yarn install
 npm rebuild node-sass
